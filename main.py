@@ -18,7 +18,8 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="CampaignPulse API", 
     description="API for CampaignPulse application", 
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
     )
 
 app.include_router(router=campain_router, prefix="/api/v1", tags=["Campaigns"])

@@ -2,7 +2,7 @@ from sqlmodel import create_engine, Session, text
 from src.core.config import Config
 
 engine = create_engine(
-    url=Config.DATABASE_URL,
+    url=Config().DATABASE_URL,
     echo=True
 )
 
