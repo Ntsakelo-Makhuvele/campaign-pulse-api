@@ -10,6 +10,7 @@ steps:
       - push # push the image to Artifact Registry
       - '$_AR_HOSTNAME/$PROJECT_ID/$_AR_REPO/$_SERVICE_NAME:$COMMIT_SHA'
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
     args:
       - run
       - deploy # deploy the image to Cloud Run
@@ -20,7 +21,6 @@ steps:
       - $_DEPLOY_REGION
       - '--platform'
       - $_PLATFORM
-    entrypoint: gcloud
 timeout: 1200s
 images:
   - '$_AR_HOSTNAME/$PROJECT_ID/$_AR_REPO/$_SERVICE_NAME:$COMMIT_SHA'
