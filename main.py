@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from src.routes.campaign import campain_router
+from src.routes.analytics import analytics_router
 from src.database.database import db_init
 from contextlib import asynccontextmanager
 
@@ -23,5 +24,6 @@ app = FastAPI(
     )
 
 app.include_router(router=campain_router, prefix="/api/v1", tags=["Campaigns"])
+app.include_router(router=analytics_router, prefix="/api/v1", tags=["Analytics"])
 
 
